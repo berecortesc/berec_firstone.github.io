@@ -175,7 +175,6 @@ input[type="submit"],
 input[type="reset"],
 input[type="button"] {
   display: inline-block;
-  height: 100px;
   width: 100px;
   padding: 0 30px;
   color: #555;
