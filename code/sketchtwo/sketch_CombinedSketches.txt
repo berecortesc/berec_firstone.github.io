@@ -1,0 +1,56 @@
+int value = 0;
+PFont stars1;
+PImage beach;
+PImage stars;
+String starsOne = "these are supposed to be shooting stars"; //YuMin-Demibol
+
+void setup(){
+  colorMode(RGB);
+  size(600,600);
+ 
+  
+  stars = loadImage("stars.jpg");
+  image(stars, 0,0, width, height);
+  beach = loadImage("beach.jpg");
+  image(beach, 0, 300, 800, height/2);
+  fill(29, 186, 218);
+  noStroke();
+  ellipse(width/2,75,150,150);
+   stars1 = createFont("Arial", 24);
+   text(starsOne, 80, 300);
+  fill(153,153,153);
+  
+  beach = loadImage("beach.jpg");
+  
+  
+  sentence(); 
+}
+
+void draw() { 
+  for ( int i = 0; i < width; i += 15 ) {
+    colorMode(RGB);
+    fill(mouseX, mouseY,153,153);
+  }
+value++;
+  
+  if ( value > 255) {
+    value = 0;
+  }
+  colorMode(RGB);
+  fill(value,255,55);
+  triangle(mouseX, mouseY, 150, 150,100,75);
+  fill(value, 33);
+  saveFrame();
+}
+
+void sentence(){
+println("this is my attempt at combined sketches");
+}
+
+void shape(int xAxis, int yAxis, int w, int y){
+  
+  ellipse(xAxis, yAxis, w, y);
+}
+void picture(int xAxis, int yAxis, int w, int y){
+  
+}

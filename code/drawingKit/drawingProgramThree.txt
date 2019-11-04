@@ -1,0 +1,106 @@
+//int value = 0;
+color pink = color(237, 71, 198);//pink
+color green = color(66, 245, 84);//green
+color blue = color(14, 66, 237);//blue
+color violet = color(93, 24, 242);//violet
+color yellow = color(246, 255, 0);//yellow
+color neutral = color(197, 237, 223);///havent used
+color white = color(255);
+PFont name;
+PImage witch;
+int rectangleSize = 15;
+int rectangleSize1 = 30;
+int ellipseSize = 15;
+int triangleSize = 15;
+int ellipseSize1 = 15;
+int circleSize = 60;
+int circleSize1 = 45;
+int circleSize2 = 20;
+
+int eraser = 25;//pixel drawing
+int delete = 30;
+
+int circleSize3 = 60;
+int circleSize4 = 50;
+int circleSize5 = 12;
+
+
+void setup () {
+  size (950, 950);
+  background(neutral); // or 255
+  //printArray(PFont.list());
+  //witch = loadImage("witch.jpg");
+  //image(witch, pmouseX,pmouseY);
+  name = createFont("Trattatello", 50);
+  textFont(name);
+  //text("Basic Drawing Kit", 200, 35);
+  text("Play with Pixels", 350, 70);
+}
+
+void draw () {
+  // background (255-value);
+  //fill(value);
+  if (mousePressed && (key == 'v' || key == 'V'))
+  {
+    strokeWeight(1);
+    stroke(violet);
+    fill(neutral);
+    rect(mouseX, mouseY, rectangleSize, rectangleSize);
+  }
+  if (mousePressed &&(key == 't' || key == 'T')) {
+    stroke(blue);
+    strokeWeight(1);
+    fill(white);
+    ellipse(mouseX, mouseY, ellipseSize1, ellipseSize1);
+  }
+  if (mousePressed && (key == 'l' || key == 'L')) {
+    strokeWeight(5);
+    fill (0);
+    line(mouseX, mouseY, pmouseX, pmouseY);
+  }
+  if (mousePressed &&(key == 'p' || key == 'P')) {
+    rect(mouseX, mouseY, rectangleSize1, rectangleSize1);
+    noStroke();
+    fill(blue);
+  }
+  if (mousePressed &&(key =='Y' || key == 'y')) {
+    ellipse(mouseX, mouseY, ellipseSize, ellipseSize);
+    noStroke();
+    fill(yellow);
+  }
+  if (mousePressed && (key =='e' || key =='E'))
+  {
+    noStroke();
+    fill(pink);
+    ellipse(mouseX, mouseY, circleSize, circleSize);
+    stroke(0);
+    strokeWeight(1);
+    fill(255);
+    ellipse(mouseX, mouseY, circleSize1, circleSize2);
+  }
+
+  if (mousePressed &&(key == 'r' || key =='R'))
+  {
+    fill(0);
+    noStroke();
+    ellipse(mouseX, mouseY, circleSize3, circleSize3);
+    stroke(0);
+    strokeWeight(4);
+    fill(255, 0, 0);
+    ellipse(mouseX, mouseY, circleSize4, circleSize5);
+  }
+
+  if (mousePressed &&(key =='d' || key == 'D')) {
+    noStroke();
+    fill(neutral);
+    rect(mouseX, mouseY, delete, delete);
+  }
+  saveFrame();
+}
+void keyPressed() {
+  if (key == 'w' || key == 'W')
+  {
+    fill(pink);
+    rect(mouseX, mouseY, eraser, eraser);//pixels draw
+  }
+}

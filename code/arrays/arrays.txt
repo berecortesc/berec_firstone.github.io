@@ -1,0 +1,72 @@
+int count = 20;
+int countOne = 20;// mine
+int col = 163;
+float[] posX = new float[count]; 
+float[] posY = new float[count];
+float[] posB = new float[countOne];
+float[] posC = new float[countOne];
+float[] speedX = new float[count];
+float[] speedY = new float[count];
+float[] speedB = new float[countOne];
+float[] speedC = new float[countOne];
+float[] sizeW = new float[count];
+float[] sizeH = new float[count];
+float[] sizeC = new float[countOne];
+int[] colors = new int[col];
+color k = color(153,0,76);
+
+void setup() { 
+  size(800, 600);
+  
+  noStroke();
+  for (int i=0; i < posX.length; i++) { 
+    posX[i] = width/2; 
+    posY[i] = height/2; 
+    posB[i] = width;//
+    posC[i] = height;//
+    speedX[i] = random(-5, 5); 
+    speedY[i] = random(-5, 5); 
+    speedB[i] = random(-5,20); //mine
+    speedC[i]= random(-4,4); 
+    sizeW[i] = random(20, 25); 
+    sizeH[i] = random(20, 100); 
+    sizeC[i]= random(10,20);
+    colors[i] = int(random(k));
+  }
+} 
+void draw() { 
+  frameRate(130);
+  background(0); 
+  fill(153,200,89); 
+  rect(40, 40, width-80, height-80); 
+  for (int i = 0; i < posX.length; i++) { 
+    //update all positions 
+    posX[i] += speedX[i]; 
+    posY[i] += speedY[i]; 
+    posB[i] += speedB[i];
+    posB[i] =+ speedC[i];
+    //draw all balls 
+    fill(colors[i]); 
+    ellipse(posX[i], posY[i], sizeW[i], sizeW[i]); 
+    rect(posX[i], posB[i], sizeC[i], sizeC[i]);
+    //check boundaries for all balls 
+
+    if (posX[i] < 40+sizeW[i]/2 || posX[i] > (width-40)-sizeW[i]/2 ) { 
+      speedX[i] = -speedX[i];
+    } 
+    if (posY[i] < 40+sizeW[i]/2 || posY[i] > (height-40)-sizeW[i]/2) { 
+      speedY[i] = -speedY[i];
+       }
+    if (posB[i] < 40+sizeC[i]/2 || posB[i] > (width-40)-sizeC[i]/2 ) { 
+      speedB[i] = -speedB[i];
+         //}
+    //if (posC[i] < 40+sizeC[i]/2 || posC[i] > (width-40)-sizeC[i]/2 ) { 
+      //speedC[i] = -speedC[i];
+    }
+    else
+    {
+         noLoop();
+    }
+    //saveFrame();
+  }
+}
