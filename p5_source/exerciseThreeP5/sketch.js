@@ -12,7 +12,7 @@ var speedC = new Array(countOne);
 var sizeW = new Array(count);
 var sizeH = new Array(count);
 var sizeC = new Array(countOne);
-//var colors = [color('#ff0046')];
+var colors = new Var(col);
 //let k = color(153,0,76);
 
 
@@ -33,7 +33,6 @@ function setup() {
     sizeW[i] = random(20, 25);
     sizeH[i] = random(20, 100);
     sizeC[i]= random(10,20);
-    fill(255,0,0);
   //  colors[i] = var (random(k));
   }
 }
@@ -49,9 +48,6 @@ function draw() {
     posB[i] += speedB[i];
     posB[i] =+ speedC[i];
     //draw all balls
-    fill(random(255));// used to be array, must be fixed
-    ellipse(posX[i], posY[i], sizeW[i], sizeW[i]);
-    rect(posX[i], posB[i], sizeC[i], sizeC[i]);
     //check boundaries for all balls
 
     if (posX[i] < 40+sizeW[i]/2 || posX[i] > (width-40)-sizeW[i]/2 ) {
